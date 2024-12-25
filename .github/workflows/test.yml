@@ -1,6 +1,15 @@
 name: Rspack Reactjs Workflow
 on: push #Events that trigger workflows https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_dispatch
 jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+            SLACK_WEBHOOK: https://hooks.slack.com/services/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
   test:
     name: Test workflow
     runs-on: ubuntu-latest #https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners
