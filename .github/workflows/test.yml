@@ -2,7 +2,7 @@ name: Rspack Reactjs Workflow
 on: push #Events that trigger workflows https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_dispatch
 jobs:
   test:
-    name: My Test job
+    name: Test workflow
     runs-on: ubuntu-latest #https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners
     steps:
       - name: Get code
@@ -15,10 +15,30 @@ jobs:
         run: | 
             npm install --global yarn
             yarn --version
-
       - name: Install dependencies
         run: yarn 
       - name: Run lint
         run: yarn lint
+  deploy:
+    name: Deploy react app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
+      - name: Install yarn
+        run: | 
+            npm install --global yarn
+            yarn --version
+      - name: Install dependencies 
+        run: yarn
+      - name: Build project
+        run: yarn build
+      - name: Deploy
+        run: echo "Deploy...."
+
         
         
