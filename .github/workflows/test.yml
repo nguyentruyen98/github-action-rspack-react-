@@ -22,6 +22,7 @@ jobs:
   deploy:
     name: Deploy react app
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Get code
         uses: actions/checkout@v4
