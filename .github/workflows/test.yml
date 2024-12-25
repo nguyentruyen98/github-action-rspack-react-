@@ -11,7 +11,7 @@ jobs:
             SLACK_CHANNEL: general
             SLACK_COLOR: "#FFFF00" # Yellow color for in-progress
             SLACK_ICON: https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/2b50@2x.png
-            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_TITLE: Post Title
             SLACK_USERNAME: rtCamp
             SLACK_MESSAGE: 'Post Content :rocket:'
